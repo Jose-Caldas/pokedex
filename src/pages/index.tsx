@@ -10,8 +10,11 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-import { DetailsType } from "../details";
-import { Data } from "../types";
+import { DetailsType } from "../types/details";
+import { Data } from "../types/data";
+import { FaChevronUp } from "react-icons/fa";
+
+import { Container, Wrapper, Btn, Card } from "../styles";
 
 const SPRITES_BASE_URL =
   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/";
@@ -33,7 +36,7 @@ export const PokemonContext = createContext<PokemonProps>({} as PokemonProps);
 
 function PokemonProvider({ children }: { children: ReactChild }) {
   const [pokemons, setPokemons] = useState<AxiosResponse<Data>[]>([]);
-  const urls = new Array(20)
+  const urls = new Array(151)
     .fill("")
     .map((_, id) => `${API_BASE_URL}${id + 1}`);
   const [active, setActive] = useState<Partial<DetailsType>>({});
@@ -124,19 +127,22 @@ function Details() {
 function GridList() {
   const { fetchDetails, setFilter, pokemons } = usePokemons();
   return (
-    <>
+    <Container>
       <input
         placeholder={"search"}
         onChange={(e) => setFilter(e.target.value)}
         // add debouce function
       />
-      {pokemons?.map(({ data: { id, name } }) => (
-        <button onClick={() => fetchDetails(id)} key={id}>
-          <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
-          {name}
-        </button>
-      ))}
-    </>
+      <Wrapper>
+        {pokemons?.map(({ data: { id, name, types } }) => (
+          <Card onClick={() => fetchDetails(id)} key={id}>
+            <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
+            <h2> {name}</h2>
+            <h3> {types[0].type.name}</h3>
+          </Card>
+        ))}
+      </Wrapper>
+    </Container>
   );
 }
 
@@ -146,6 +152,9 @@ function GridList() {
 // Details
 // Input
 // Type input - verificar a lista
+function handleScrollTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 export default function App() {
   return (
     <PokemonProvider>
@@ -155,6 +164,9 @@ export default function App() {
         <Details />
 
         <GridList />
+        <Btn>
+          <FaChevronUp className="btn" onClick={() => handleScrollTop()} />
+        </Btn>
       </div>
     </PokemonProvider>
   );
