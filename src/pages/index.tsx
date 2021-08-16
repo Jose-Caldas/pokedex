@@ -13,8 +13,16 @@ import {
 import { DetailsType } from "../types/details";
 import { Data } from "../types/data";
 import { FaChevronUp } from "react-icons/fa";
+import Link from "next/link";
 
-import { Container, Wrapper, Btn, Card } from "../styles";
+import {
+  Container,
+  Wrapper,
+  Btn,
+  Card,
+  DetailsContainer,
+  Search,
+} from "../styles";
 
 const SPRITES_BASE_URL =
   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/";
@@ -92,14 +100,14 @@ const usePokemons = () => useContext(PokemonContext);
 
 // Pokemon selecionado
 // Polemon nao selecionado
-function Details() {
+export function Details() {
   const { active } = usePokemons();
 
   return (
-    <>
+    <DetailsContainer>
       {active?.chain?.evolves_to?.map((evolve) => (
         <ul key={evolve.species.name}>
-          <h2>Evolutions</h2>
+          <h2>Evolutions:</h2>
           <li>{active?.chain?.species.name}</li>
           <li>{evolve.species.name}</li>
 
@@ -115,7 +123,7 @@ function Details() {
           </Fragment>
         </ul>
       ))}
-    </>
+    </DetailsContainer>
   );
 }
 
@@ -128,16 +136,23 @@ function GridList() {
   const { fetchDetails, setFilter, pokemons } = usePokemons();
   return (
     <Container>
-      <input
-        placeholder={"search"}
-        onChange={(e) => setFilter(e.target.value)}
-        // add debouce function
-      />
+      <Search>
+        <h3>Search a pokemon:</h3>
+        <input
+          placeholder={"search"}
+          onChange={(e) => setFilter(e.target.value)}
+          // add debouce function
+        />
+      </Search>
+
       <Wrapper>
         {pokemons?.map(({ data: { id, name, types } }) => (
           <Card onClick={() => fetchDetails(id)} key={id}>
+            {`#${id}`}
             <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
-            <h2> {name}</h2>
+            <Link href={`/pokemon?id=${id}`}>
+              <a>{name}</a>
+            </Link>
             <h3> {types[0].type.name}</h3>
           </Card>
         ))}
@@ -162,8 +177,8 @@ export default function App() {
         <h1>Pokedex</h1>
 
         <Details />
-
         <GridList />
+
         <Btn>
           <FaChevronUp className="btn" onClick={() => handleScrollTop()} />
         </Btn>

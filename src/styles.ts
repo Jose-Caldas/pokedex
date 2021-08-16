@@ -4,9 +4,6 @@ export const Container = styled.div`
   background-color: aliceblue;
   display: flex;
   flex-direction: column;
-  input {
-    width: 200px;
-  }
 `;
 
 export const Wrapper = styled.div`
@@ -25,14 +22,15 @@ export const Card = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  background-color: #fff;
 
-  height: 16rem;
-  border: 1px solid gray;
+  height: 260px;
   border: none;
   border-radius: 4px;
-  border: 1px solid gray;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  padding: 10px 0;
 
   &:hover {
     transform: scale(1.05);
@@ -52,4 +50,38 @@ export const Btn = styled.button`
   color: #fff;
   padding: 5px 7px;
   cursor: pointer;
+`;
+
+export const DetailsContainer = styled.div`
+  h2 {
+    text-align: center;
+  }
+  ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+`;
+export const Search = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    width: 250px;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin-left: 16px;
+  }
 `;
