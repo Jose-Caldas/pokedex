@@ -68,6 +68,7 @@ function PokemonProvider({ children }: { children: ReactChild }) {
     } = await axios.get(`${API_SPECIES_BASE_URL}${id}`);
 
     const { data } = await axios.get(url);
+    console.log(data);
 
     setActive(data);
   }
@@ -134,6 +135,7 @@ export function Details() {
 // Loading
 function GridList() {
   const { fetchDetails, setFilter, pokemons } = usePokemons();
+
   return (
     <Container>
       <Search>
@@ -150,7 +152,7 @@ function GridList() {
           <Card onClick={() => fetchDetails(id)} key={id}>
             {`#${id}`}
             <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
-            <Link href={`/pokemon?id=${id}`}>
+            <Link href={`/pokemon/${id}`}>
               <a>{name}</a>
             </Link>
             <h3> {types[0].type.name}</h3>

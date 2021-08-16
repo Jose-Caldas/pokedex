@@ -1,16 +1,14 @@
-import React from "react";
-
 function Pokemon() {
   return (
     <div>
-      <h1>todo: a Pokemon page</h1>
+      <h1>Sorry! In progress...</h1>
     </div>
   );
 }
 
 export default Pokemon;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   return {
     props: {},
   };
