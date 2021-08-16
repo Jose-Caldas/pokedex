@@ -19,9 +19,9 @@ import {
   Container,
   Wrapper,
   Btn,
-  Card,
   DetailsContainer,
   Search,
+  Info,
 } from "../styles";
 
 const SPRITES_BASE_URL =
@@ -133,11 +133,14 @@ export function Details() {
 // Erro
 // resultados filtrados
 // Loading
+
 function GridList() {
   const { fetchDetails, setFilter, pokemons } = usePokemons();
 
   return (
     <Container>
+      <h1>My Pokedex</h1>
+
       <Search>
         <h3>Search a pokemon:</h3>
         <input
@@ -149,14 +152,20 @@ function GridList() {
 
       <Wrapper>
         {pokemons?.map(({ data: { id, name, types } }) => (
-          <Card onClick={() => fetchDetails(id)} key={id}>
-            {`#${id}`}
+          <button
+            className={`bg-${types[0].type.name}`}
+            onClick={() => fetchDetails(id)}
+            key={id}
+          >
             <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
-            <Link href={`/pokemon/${id}`}>
-              <a>{name}</a>
-            </Link>
-            <h3> {types[0].type.name}</h3>
-          </Card>
+            <Info>
+              <h2> {`${id}.`}</h2>
+              <Link href={`/pokemon/${id}`}>
+                <a>{name}</a>
+              </Link>
+            </Info>
+            <h3>Type: {types[0].type.name}</h3>
+          </button>
         ))}
       </Wrapper>
     </Container>
@@ -172,12 +181,10 @@ function GridList() {
 function handleScrollTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
-export default function App() {
+export default function Home() {
   return (
     <PokemonProvider>
       <div className="App">
-        <h1>Pokedex</h1>
-
         <Details />
         <GridList />
 
