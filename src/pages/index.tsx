@@ -22,7 +22,7 @@ import {
   DetailsContainer,
   Search,
   Info,
-} from "../styles";
+} from "../styles/styles";
 
 const SPRITES_BASE_URL =
   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/";
@@ -160,11 +160,11 @@ function GridList() {
             <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
             <Info>
               <h2> {`${id}.`}</h2>
-              <Link href={`/pokemon/${id}`}>
+              <Link href={`/pokemon?id=${id}`}>
                 <a>{name}</a>
               </Link>
             </Info>
-            <h3>Type: {types[0].type.name}</h3>
+            {/* <h3>Type: {types[0].type.name}</h3> */}
           </button>
         ))}
       </Wrapper>
