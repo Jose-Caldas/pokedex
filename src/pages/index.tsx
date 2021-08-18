@@ -22,6 +22,8 @@ import {
   DetailsContainer,
   Search,
   Info,
+  Card,
+  Button,
 } from "../styles/styles";
 
 const SPRITES_BASE_URL =
@@ -152,11 +154,7 @@ function GridList() {
 
       <Wrapper>
         {pokemons?.map(({ data: { id, name, types } }) => (
-          <button
-            className={`bg-${types[0].type.name}`}
-            onClick={() => fetchDetails(id)}
-            key={id}
-          >
+          <Card className={`bg-${types[0].type.name}`} key={id}>
             <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
             <Info>
               <h2> {`${id}.`}</h2>
@@ -164,8 +162,9 @@ function GridList() {
                 <a>{name}</a>
               </Link>
             </Info>
+            <Button onClick={() => fetchDetails(id)}>Evolution</Button>
             {/* <h3>Type: {types[0].type.name}</h3> */}
-          </button>
+          </Card>
         ))}
       </Wrapper>
     </Container>

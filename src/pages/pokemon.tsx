@@ -16,12 +16,14 @@ function pokemon({ pokemon }) {
           {pokemon.id}. {pokemon.name}
         </Title>
         <Image src={pokemon.image} alt={pokemon.name} />
-        <p>Height: {pokemon.height}</p>
-        <p>Weight: {pokemon.weight}</p>
-        <p>Type: {pokemon.types[0].type.name}</p>
+        <h3>Height: {pokemon.height}</h3>
+        <h3>Weight: {pokemon.weight}</h3>
+        <p className={`bg-${pokemon.types[0].type.name}`}>
+          Type: {pokemon.types[0].type.name}
+        </p>
       </Container>
       <Link href="/">
-        <a>Home</a>
+        <a>Explore more Pokemons</a>
       </Link>
     </Wrapper>
   );

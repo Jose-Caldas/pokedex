@@ -22,70 +22,68 @@ export const Wrapper = styled.div`
   padding: 30px;
 
   img {
-    width: 80px;
-  }
-
-  /* .bg-rock {
-    background-color: rgb(148, 81, 81);
-  }
-  .bg-ghost {
-    background-color: rgb(247, 247, 247);
-  }
-  .bg-electric {
-    background-color: rgb(255, 255, 161);
-  }
-  .bg-bug {
-    background-color: #f6d6a7;
-  }
-  .bg-poison {
-    background-color: #e0a7f6;
-  }
-  .bg-normal {
-    background-color: #a8a878;
-  }
-  .bg-fairy {
-    background-color: rgba(255, 192, 203, 0.863);
-  }
-  .bg-fire {
-    background-color: #fbe3df;
-  }
-  .bg-grass {
-    background-color: #e2f9e1;
-  }
-  .bg-water {
-    background-color: #e0f1fd;
-  }
-  .bg-fighting {
-    background-color: #d3d3d3;
-  }
-  .bg-psychic {
-    background-color: #f3d6e4;
-  }
-  .bg-ground {
-    background-color: #f4e7da;
-  } */
-
-  button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: #fff;
-
-    height: 260px;
-    border: none;
+    width: 150px;
+    height: 150px;
+    background: #eee;
+    padding: 20px;
     border-radius: 4px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    padding: 10px 0;
-
-    &:hover {
-      transform: scale(1.05);
-      transition-duration: 200ms;
-    }
   }
+`;
+
+export const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #fff;
+
+  height: 260px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+
+  &:hover {
+    animation: bounce 0.5s linear;
+  }
+
   h3 {
     color: #171717;
+  }
+
+  @keyframes bounce {
+    20% {
+      transform: translateY(-6px);
+    }
+    40% {
+      transform: translateY(0px);
+    }
+
+    80% {
+      transform: translateY(-2px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  a {
+    text-transform: capitalize;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+`;
+
+export const Button = styled.button`
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   }
 `;
 
