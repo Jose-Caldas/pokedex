@@ -15,6 +15,7 @@ export default createGlobalStyle`
   }
 
   html, body, #root{
+    background-color:aliceblue;
       
 }
 

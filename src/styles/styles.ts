@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
     width: 80px;
   }
 
-  .bg-rock {
+  /* .bg-rock {
     background-color: rgb(148, 81, 81);
   }
   .bg-ghost {
@@ -63,13 +63,14 @@ export const Wrapper = styled.div`
   }
   .bg-ground {
     background-color: #f4e7da;
-  }
+  } */
 
   button {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #fff;
 
     height: 260px;
     border: none;
