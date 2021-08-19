@@ -8,6 +8,18 @@ export default createGlobalStyle`
     outline:0;
     box-sizing: border-box;
     letter-spacing:0.1px;
+
+    *::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #283e51;
+  border-radius: 20px;
+  border: 3px solid #4b79a1;
+}
+
+ 
   }
 
   *:focus{
@@ -15,13 +27,21 @@ export default createGlobalStyle`
   }
 
   html, body, #root{
-    background-color:aliceblue;
-      
-}
+    background-color: #283e51;
+       
+
 
 body{
     -webkit-font-smoothing: antialiased;
-    background:#FBFBFB;
+    background-color: #283e51;
     font-family: 'Rubik', sans-serif;
+  
+
+
+       
+}
+  
   }
+
+
   `;

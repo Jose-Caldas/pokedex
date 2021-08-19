@@ -1,20 +1,37 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: aliceblue;
+  background-color: #283e51;
+
   display: flex;
+
   flex-direction: column;
   font-family: rubik;
 
   h1 {
+    width: 100%;
     text-align: center;
     background-color: #fff;
     padding: 10px 0;
     margin: 30px 0;
+    color: #283e51;
+
+    span {
+      font-weight: 400;
+      color: #283e51;
+    }
+  }
+
+  @media (min-width: 425px) {
+    justify-content: center;
+    align-items: center;
   }
 `;
 
 export const Wrapper = styled.div`
+  background-color: #283e51;
+  width: 100%;
+  max-width: 1400px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 20px;
@@ -47,10 +64,6 @@ export const Card = styled.div`
     animation: bounce 0.5s linear;
   }
 
-  h3 {
-    color: #171717;
-  }
-
   @keyframes bounce {
     20% {
       transform: translateY(-6px);
@@ -66,17 +79,11 @@ export const Card = styled.div`
       transform: translateY(0);
     }
   }
-
-  a {
-    text-transform: capitalize;
-    &:hover {
-      opacity: 0.8;
-    }
-  }
 `;
 
 export const Button = styled.button`
   background-color: #eee;
+  color: #283e51;
   border: none;
   padding: 5px 10px;
   border-radius: 8px;
@@ -90,7 +97,7 @@ export const Button = styled.button`
 export const Btn = styled.button`
   border: none;
   border-radius: 100%;
-  background: #999;
+  background: #4b79a1;
   box-shadow: 2px 2px 10px -4px rgba(0, 0, 0, 0.5);
   position: fixed;
   right: 15px;
@@ -123,16 +130,33 @@ export const DetailsContainer = styled.div`
 `;
 export const Search = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 30px;
+  p {
+    color: #fff;
+    margin-right: 15px;
+  }
 
   input {
-    width: 250px;
+    width: 460px;
     border: none;
     padding: 10px;
     border-radius: 4px;
-    margin-left: 16px;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    input {
+      width: 100%;
+
+      margin-left: 0;
+      padding: 10px 30px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
   }
 `;
 
@@ -144,10 +168,16 @@ export const Info = styled.div`
   h2 {
     font-size: 20px;
     margin-right: 10px;
+    color: #283e51;
   }
   a {
     font-size: 20px;
     text-decoration: none;
-    color: #171717;
+    color: #283e51;
+    text-transform: capitalize;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 `;

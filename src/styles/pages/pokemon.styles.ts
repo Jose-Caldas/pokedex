@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: aliceblue;
+  background-color: #283e51;
 
   p {
     color: #171717;
@@ -17,9 +17,10 @@ export const Wrapper = styled.div`
     margin: 20px;
     font-size: 20px;
     text-decoration: none;
-    color: #171717;
+    color: #fff;
     padding: 10px;
     border-radius: 4px;
+    background-color: #4b79a1;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     &:hover {
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
@@ -65,6 +66,7 @@ export const Container = styled.div`
 
   .bg-ghost {
     background-color: rgb(247, 247, 247);
+    color: #171717;
   }
 
   .bg-normal {
@@ -112,6 +114,16 @@ export const Container = styled.div`
     background-color: #b7b7ce;
   }
 
+  h3 {
+    width: 100%;
+    color: #283e51;
+    text-align: flex-start;
+
+    span {
+      font-weight: 400;
+    }
+  }
+
   p {
     width: 100%;
     padding: 10px 15px;
@@ -123,8 +135,20 @@ export const Container = styled.div`
 `;
 export const Title = styled.h1`
   text-transform: capitalize;
+  color: #283e51;
 `;
 export const Image = styled.img`
   width: 250px;
   margin-bottom: 20px;
+  animation: fly 0.2s linear;
+
+  @keyframes fly {
+    0% {
+      transform: translateY(-2rem);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
 `;

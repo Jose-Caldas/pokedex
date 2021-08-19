@@ -31,7 +31,7 @@ const SPRITES_BASE_URL =
 const API_BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const API_SPECIES_BASE_URL = "https://pokeapi.co/api/v2/pokemon-species/";
 
-interface PokemonProps {
+export interface PokemonProps {
   active: Partial<DetailsType>;
   fetchDetails: (id: number) => void;
   pokemons: AxiosResponse<Data>[];
@@ -141,10 +141,12 @@ function GridList() {
 
   return (
     <Container>
-      <h1>My Pokedex</h1>
+      <h1>
+        My Pokedex - <span>List of Pokémon: Generation I</span>
+      </h1>
 
       <Search>
-        <h3>Search a pokemon:</h3>
+        <p>Search a pokémon:</p>
         <input
           placeholder={"search"}
           onChange={(e) => setFilter(e.target.value)}
@@ -154,7 +156,7 @@ function GridList() {
 
       <Wrapper>
         {pokemons?.map(({ data: { id, name, types } }) => (
-          <Card className={`bg-${types[0].type.name}`} key={id}>
+          <Card key={id}>
             <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
             <Info>
               <h2> {`${id}.`}</h2>
@@ -163,7 +165,6 @@ function GridList() {
               </Link>
             </Info>
             <Button onClick={() => fetchDetails(id)}>Evolution</Button>
-            {/* <h3>Type: {types[0].type.name}</h3> */}
           </Card>
         ))}
       </Wrapper>
