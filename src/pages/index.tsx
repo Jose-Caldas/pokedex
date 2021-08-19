@@ -23,7 +23,6 @@ import {
   Search,
   Info,
   Card,
-  Button,
 } from "../styles/styles";
 
 const SPRITES_BASE_URL =
@@ -103,28 +102,33 @@ const usePokemons = () => useContext(PokemonContext);
 
 // Pokemon selecionado
 // Polemon nao selecionado
-export function Details() {
-  const { active } = usePokemons();
+interface DetailsProps {
+  active: Partial<DetailsType>;
+}
+export function Details({ active }: DetailsProps) {
+  // const { active } = usePokemons();
 
   return (
     <DetailsContainer>
       {active?.chain?.evolves_to?.map((evolve) => (
-        <ul key={evolve.species.name}>
+        <section key={evolve.species.name}>
           <h2>Evolutions:</h2>
-          <li>{active?.chain?.species.name}</li>
-          <li>{evolve.species.name}</li>
+          <ul key={evolve.species.name}>
+            <li>{active?.chain?.species.name}</li>
+            <li>{evolve.species.name}</li>
 
-          <Fragment key={evolve.species.name}>
-            {evolve?.evolves_to?.map((chain) => (
-              <Fragment key={chain.species.name}>
-                <li>{chain.species.name}</li>
-                {chain?.evolves_to?.map((c) => (
-                  <li key={c.species.name}>{c.species.name}</li>
-                ))}
-              </Fragment>
-            ))}
-          </Fragment>
-        </ul>
+            <Fragment key={evolve.species.name}>
+              {evolve?.evolves_to?.map((chain) => (
+                <Fragment key={chain.species.name}>
+                  <li>{chain.species.name}</li>
+                  {chain?.evolves_to?.map((c) => (
+                    <li key={c.species.name}>{c.species.name}</li>
+                  ))}
+                </Fragment>
+              ))}
+            </Fragment>
+          </ul>
+        </section>
       ))}
     </DetailsContainer>
   );
@@ -155,16 +159,22 @@ function GridList() {
       </Search>
 
       <Wrapper>
-        {pokemons?.map(({ data: { id, name, types } }) => (
+        {pokemons?.map(({ data: { id, name } }) => (
           <Card key={id}>
-            <img alt={`sprite-` + name} src={`${SPRITES_BASE_URL}${id}.svg`} />
+            <Link href={`/pokemon?id=${id}`}>
+              <a>
+                <img
+                  alt={`sprite-` + name}
+                  src={`${SPRITES_BASE_URL}${id}.svg`}
+                />
+              </a>
+            </Link>
             <Info>
               <h2> {`${id}.`}</h2>
               <Link href={`/pokemon?id=${id}`}>
                 <a>{name}</a>
               </Link>
             </Info>
-            <Button onClick={() => fetchDetails(id)}>Evolution</Button>
           </Card>
         ))}
       </Wrapper>
@@ -185,7 +195,6 @@ export default function Home() {
   return (
     <PokemonProvider>
       <div className="App">
-        <Details />
         <GridList />
 
         <Btn>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface DetailsType {
   baby_trigger_item: any;
   chain: Chain;
@@ -65,7 +66,7 @@ export interface EvolutionDetail2 {
   needs_overworld_rain: boolean;
   party_species: any;
   party_type: any;
-  relative_physical_stats: any;
+  relative_physical_stats: unknown;
   time_of_day: string;
   trade_species: any;
   trigger: Trigger2;

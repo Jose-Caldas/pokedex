@@ -29,7 +29,6 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  background-color: #283e51;
   width: 100%;
   max-width: 1400px;
   display: grid;
@@ -37,6 +36,7 @@ export const Wrapper = styled.div`
   grid-gap: 20px;
   padding-inline-start: 0;
   padding: 30px;
+  background-color: #283e51;
 
   img {
     width: 150px;
@@ -44,10 +44,11 @@ export const Wrapper = styled.div`
     background: #eee;
     padding: 20px;
     border-radius: 4px;
+    cursor: pointer;
   }
 `;
 
-export const Card = styled.div`
+export const Card = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,25 +110,46 @@ export const Btn = styled.button`
 `;
 
 export const DetailsContainer = styled.div`
-  h2 {
-    text-align: center;
-  }
-  ul {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #4b79a1;
 
-    list-style: none;
-  }
+  section {
+    h2 {
+      color: #fff;
+      margin-bottom: 25px;
+    }
+    ul {
+      display: flex;
+      list-style: none;
 
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 10px;
+      @media (max-width: 370px) {
+        li {
+          width: 90px;
+          height: 90px;
+        }
+      }
+    }
+    li {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+
+      background-color: gray;
+    }
+  }
+  li:first-child {
+    margin-left: 0;
   }
 `;
+
 export const Search = styled.div`
   display: flex;
   align-items: center;
