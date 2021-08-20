@@ -129,7 +129,10 @@ export const ContainerInfo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: #eee; */
+  background-color: #eee;
+  padding: 18px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 
   h3 {
     width: 100%;
@@ -154,6 +157,7 @@ export const ContainerDetail = styled.div`
   background: #4b79a1;
   border-radius: 4px;
   padding: 30px;
+  box-shadow: 0 0 2px #283e51;
 
   @media (max-width: 600px) {
     padding: 30px 0;

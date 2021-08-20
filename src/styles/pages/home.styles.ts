@@ -1,20 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #283e51;
+  width: 100%;
+`;
 
-  display: flex;
-
-  flex-direction: column;
-  font-family: rubik;
-
+export const Content = styled.div`
   h1 {
     width: 100%;
     text-align: center;
     background-color: #fff;
-    padding: 10px 0;
+    padding: 10px;
     margin: 30px 0;
     color: #283e51;
+    font-size: 28px;
+
+    @media (max-width: 425px) {
+      font-size: 18px;
+    }
 
     span {
       font-weight: 400;
@@ -31,6 +33,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 1400px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 20px;
@@ -141,7 +144,6 @@ export const DetailsContainer = styled.div`
       align-items: center;
       justify-content: center;
       margin-left: 10px;
-
       background-color: gray;
     }
   }
@@ -153,6 +155,7 @@ export const DetailsContainer = styled.div`
 export const Search = styled.div`
   display: flex;
   align-items: center;
+  margin: 0 auto;
   width: 100%;
   max-width: 1400px;
   padding: 0 30px;

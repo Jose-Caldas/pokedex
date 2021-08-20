@@ -1,11 +1,11 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Home from ".";
 import GlobalStyle from "../styles/global";
+import { PokemonProvider } from "../context/usePokemons";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <PokemonProvider>
       <Head>
         <title>Pokedex</title>
         <link rel="shortcut icon" href="/icon-512.png" />
@@ -23,7 +23,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <Component {...pageProps} />
       <GlobalStyle />
-    </>
+    </PokemonProvider>
   );
 }
 export default App;
