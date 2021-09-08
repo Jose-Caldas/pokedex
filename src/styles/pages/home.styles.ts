@@ -48,6 +48,7 @@ export const Wrapper = styled.div`
     padding: 20px;
     border-radius: 4px;
     cursor: pointer;
+    animation: slide 0.2s ease;
   }
 `;
 
@@ -81,6 +82,15 @@ export const Card = styled.button`
     }
     100% {
       transform: translateY(0);
+    }
+  }
+  @keyframes slide {
+    0% {
+      transform: translateX(-2rem);
+    }
+
+    100% {
+      transform: translateX(0);
     }
   }
 `;

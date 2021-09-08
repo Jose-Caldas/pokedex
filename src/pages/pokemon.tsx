@@ -80,7 +80,6 @@ export const getServerSideProps: GetServerSideProps<PokemonProps> = async ({
     },
   } = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
   const { data } = await axios.get(url);
-  console.log(data);
 
   const evolutions = data;
 

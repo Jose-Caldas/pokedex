@@ -55,9 +55,8 @@ function PokemonProvider({ children }: PokemonProviderProps) {
     } = await axios.get(`${API_SPECIES_BASE_URL}${id}`);
 
     const { data } = await axios.get(url);
-    console.log(data);
-
     setActive(data);
+    console.log(data);
   }
 
   const list = useMemo(() => {

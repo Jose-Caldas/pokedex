@@ -8,6 +8,8 @@ export default createGlobalStyle`
     outline:0;
     box-sizing: border-box;
     letter-spacing:0.1px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
 
     
 

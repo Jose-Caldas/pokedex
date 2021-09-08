@@ -133,6 +133,7 @@ export const ContainerInfo = styled.div`
   padding: 18px;
   border-radius: 4px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  animation: fly 0.2s linear;
 
   h3 {
     width: 100%;
@@ -158,6 +159,7 @@ export const ContainerDetail = styled.div`
   border-radius: 4px;
   padding: 30px;
   box-shadow: 0 0 2px #283e51;
+  animation: slide 0.3s ease;
 
   @media (max-width: 600px) {
     padding: 30px 0;
@@ -170,7 +172,6 @@ export const Title = styled.h1`
 export const Image = styled.img`
   width: 250px;
   margin-bottom: 20px;
-  animation: fly 0.2s linear;
 
   @keyframes fly {
     0% {
